@@ -17,6 +17,7 @@ class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindText()
 
         // Do any additional setup after loading the view.
     }
@@ -29,8 +30,13 @@ class ResultViewController: UIViewController {
         }
     }
     
+    func bindText() {
+        self.emailLabel.text = "\(email)"
+        self.passwordLabel.text = "\(password)"
+    }
+    
     func bindText(email: String, password: String) {
-        self.emailLabel.text = "email : \(email)"
-        self.passwordLabel.text = "password : \(password)"
+        self.email = "email : \(email)"
+        self.password = "password : \(password)"
     }
 }

@@ -35,9 +35,11 @@ class ViewController: UIViewController {
     }
     
     func pushToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultViewController") as? ResultViewController else {return}
+        
+        guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController else {return}
         resultVC.bindText(email: idText, password: passwordText)
-        self.navigationController?.pushViewController(resultVC, animated: true)
+            self.navigationController?.pushViewController(resultVC, animated: true)
+        
     }
         
     func presentToResultVC() {

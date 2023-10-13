@@ -36,22 +36,13 @@ class ViewController: UIViewController {
         }
     }
     
-    func checkInputState(idInput: String, passwordInput: String) -> Bool {
-        if idInput != "" && passwordInput != "" {
-            return true
-        } else {
-            view.showToast(message: "아이디 및 비밀번호를 모두 입력해주세요!")
-            return false
-        }
-    }
-    
     func pushToResultVC() {
-        if checkInputState(idInput: idText, passwordInput: passwordText) {
-            
+        if idText != "" && passwordText != "" {
             guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController else {return}
             resultVC.bindText(email: idText)
             self.navigationController?.pushViewController(resultVC, animated: true)
-            
+        } else {
+            view.showToast(message: "아이디 및 비밀번호를 모두 입력해주세요!")
         }
     }
 }

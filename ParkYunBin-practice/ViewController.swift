@@ -49,16 +49,10 @@ class ViewController: UIViewController {
         if checkInputState(idInput: idText, passwordInput: passwordText) {
             
             guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController else {return}
-            resultVC.bindText(email: idText, password: passwordText)
+            resultVC.bindText(email: idText)
             self.navigationController?.pushViewController(resultVC, animated: true)
             
         }
-    }
-        
-    func presentToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController else {return}
-        resultVC.bindText(email: idText, password: passwordText)
-        self.present(resultVC, animated: true)
     }
 }
 

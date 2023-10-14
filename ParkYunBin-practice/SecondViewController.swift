@@ -9,6 +9,9 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
+    private let height = UIScreen.main.bounds.height / 4
+    private let width = UIScreen.main.bounds.width / 2
+    
     var view1: UIView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -36,6 +39,20 @@ class SecondViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private var stackView1: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 0
+        return stackView
+    }()
+    
+    private var stackView2: UIStackView = {
+        let stackView = UIStackView()
+        
+        return stackView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,23 +69,23 @@ class SecondViewController: UIViewController {
     private func setConstraint() {
         NSLayoutConstraint.activate([view1.topAnchor.constraint(equalTo: self.view.topAnchor),
                                      view1.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-                                     view1.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4),
-                                     view1.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+                                     view1.heightAnchor.constraint(equalToConstant: height),
+                                     view1.widthAnchor.constraint(equalToConstant: width)])
 
         NSLayoutConstraint.activate([view2.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                                      view2.topAnchor.constraint(equalTo: self.view1.bottomAnchor),
-                                     view2.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4),
-                                     view2.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+                                     view2.heightAnchor.constraint(equalToConstant: height),
+                                     view2.widthAnchor.constraint(equalToConstant: width)])
         
         NSLayoutConstraint.activate([view3.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                                      view3.topAnchor.constraint(equalTo: self.view2.bottomAnchor),
-                                     view3.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4),
-                                     view3.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+                                     view3.heightAnchor.constraint(equalToConstant: height),
+                                     view3.widthAnchor.constraint(equalToConstant: width)])
         
         NSLayoutConstraint.activate([view4.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
                                      view4.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-                                     view4.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4),
-                                     view4.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2)])
+                                     view4.heightAnchor.constraint(equalToConstant: height),
+                                     view4.widthAnchor.constraint(equalToConstant: width)])
     }
 
 }
